@@ -17,7 +17,11 @@ public class ProdutosService {
     @Autowired
     private ProdutosRepository listaProdutosRepository;
     
-    // GetAll
+    // GetAll Listas
+    public List<String> getAllNomesListas(){
+        return listaProdutosRepository.findAllNomesListas();
+    }
+    // GetAllProdutos da Lista
     public List<Produtos> getAllByNomeLista (String nomeLista){
         return listaProdutosRepository.findAllByNomeLista(nomeLista);
     }
