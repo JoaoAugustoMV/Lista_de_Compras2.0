@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+        <section id="InputsProduto">
+            <mat-form-field appearance="fill">  
+                <mat-label for="nomeProduto">Nome do Produto</mat-label>
+                <input matInput #nomeProduto type="text" id="nomeProduto">
+            </mat-form-field>
+        
+        
+        
+            <section class="InputsNumeros">
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label  for="precoProduto">Preco</mat-label>
+                    <input matInput #precoProduto type="number" name="" id="precoProduto" placeholder="0">
+                    <span matPrefix>R&#36;  </span>
+                </mat-form-field>
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label  for="quantidadeProduto">Quantidade</mat-label>
+                    <input matInput #quantidadeProduto type="number" id="quantidadeProduto">
+                </mat-form-field>
+            </section>
+
+            <button mat-raised-button (click)="adicionarProduto(nomeProduto, precoProduto, quantidadeProduto)">Adicionar</button>
+        </section>
+
+        <!-- [nProdutos] monitora as adiçoes de produtos para atualizar o total final -->
+        <app-tabela-produtos  [nProdutos]="listaProdutos.length" [listaProdutos]="listaProdutos" ></app-tabela-produtos>
+
+        <button type="submit" (click)="salvarLista()">Salvar Lista</button>
+      
+    
+   
+
+</body>
+</html>

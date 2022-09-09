@@ -23,3 +23,7 @@
     - [ ] Filtrar as listas
     - [ ] modificar
     - [ ] deletar 
+
+- Pagina Listas Salvas(Pag inicial)
+    - Componente Lista Salva
+        - Receber: nomeLista, total
