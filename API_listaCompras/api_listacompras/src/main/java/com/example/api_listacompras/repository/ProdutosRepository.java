@@ -16,4 +16,7 @@ public interface ProdutosRepository extends JpaRepository<Produtos, Integer>{
 
     @Query( nativeQuery = true, value = "SELECT * FROM todas_listas WHERE nome_lista = :nomeLista")
     List<Produtos> findAllByNomeLista(@Param("nomeLista") String nomeLista);
+
+    @Query(nativeQuery = true, value = "SELECT DISTINCT nome_lista from todas_listas")
+    List<String> findAllNomesListas();
 }
