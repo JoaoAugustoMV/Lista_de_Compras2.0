@@ -1,0 +1,10 @@
+#conteudo{
+    background-color: red;
+    padding: 10px;
+    max-width: 80vw;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+}
+
