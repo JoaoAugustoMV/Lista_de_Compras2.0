@@ -19,6 +19,8 @@ public class Produtos {
    
     private int id_lista;
     private String nomeLista;
+    private String nome;
+    
     private float preco;
     private int quantidade;
     private float total;
@@ -39,6 +41,12 @@ public class Produtos {
     }
     public void setNomeLista(String nomeLista) {
         this.nomeLista = nomeLista;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     public float getPreco() {
         return preco;
