@@ -1,7 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/listaDeCompras/lista-de-compras.component';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-salvar-lista',
@@ -15,7 +18,9 @@ export class SalvarListaComponent implements OnInit {
   nomeLista!: string
     constructor(public dialogRef: MatDialogRef<ListaDeComprasComponent>, 
                 @Inject(MAT_DIALOG_DATA) public data: any,
-                private produtoService: ProdutoService) {}
+                private produtoService: ProdutoService,
+                private snackBar: MatSnackBar,
+                private rotas: Router) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
   }
@@ -38,6 +43,14 @@ export class SalvarListaComponent implements OnInit {
     console.log(lista)
 
     this.produtoService.adicionarLista(nomeLista, lista).subscribe((resposta) => console.log(resposta))
-    
+    this.abrirSnackBar()
+    this.rotas.navigateByUrl('/')
+  }
+
+  abrirSnackBar(){
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 4000,
+      panelClass: 'teste'
+    })
   }
 }
