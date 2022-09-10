@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnChanges, OnInit, } from '@angular/core';
 import { Descricao } from 'src/app/components/models/descricao.class';
 import { ListaIconeService } from 'src/app/services/lista-icone.service';
 import { ProdutoService } from 'src/app/services/produto.service';
@@ -8,7 +8,7 @@ import { ProdutoService } from 'src/app/services/produto.service';
   templateUrl: './listas-salvas.component.html',
   styleUrls: ['./listas-salvas.component.css']
 })
-export class ListasSalvasComponent implements OnInit {
+export class ListasSalvasComponent implements OnInit, OnChanges {
 
   todasListas: string[] = [] // Apenas os nomes
   descricoes: Descricao[] = [] // nomes das listas e seu total respectivo
@@ -18,6 +18,9 @@ export class ListasSalvasComponent implements OnInit {
   ngOnInit(): void {
     this.receberNomesListas()
     
+  }
+  ngOnChanges(){
+    this.receberNomesListas()
   }
 
   // Retornar apenas os nomes da lista
