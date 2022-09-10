@@ -20,17 +20,17 @@ export class ProdutoService {
   }
   
   // 
-  retornarNomesListas(): Observable<String[]>{
-    return this.httpClient.get<String[]>(this.url)
+  retornarNomesListas(): Observable<string[]>{
+    return this.httpClient.get<string[]>(this.url)
   }
 
   // Get By nomeLista
 
-  retornarLista(nomeLista: String): Observable<Produto[]>{
+  retornarLista(nomeLista: string): Observable<Produto[]>{
     return this.httpClient.get<Produto[]>(this.url + nomeLista);
   }
   //POST
-  adicionarLista(nomeLista: String, produtos: Produto[]): Observable<Produto[]>{ //  
+  adicionarLista(nomeLista: string, produtos: Produto[]): Observable<Produto[]>{ //  
     const url = this.url + nomeLista
     console.log("url", url)
     console.log("nomeLista", nomeLista)

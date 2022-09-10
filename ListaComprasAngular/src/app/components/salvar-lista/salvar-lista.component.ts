@@ -12,7 +12,7 @@ export class SalvarListaComponent implements OnInit {
 
   @Input() apareceSalvarLista!: boolean
   nsei = "Nao Sei"
-  nomeLista!: String
+  nomeLista!: string
     constructor(public dialogRef: MatDialogRef<ListaDeComprasComponent>, 
                 @Inject(MAT_DIALOG_DATA) public data: any,
                 private produtoService: ProdutoService) {}
