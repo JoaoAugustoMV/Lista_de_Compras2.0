@@ -12,9 +12,13 @@ import { TabelaProdutosComponent } from './pages/lista-de-compras/tabela-produto
 import { ListasSalvasComponent } from './pages/listas-salvas/listas-salvas.component'
 import { ListaIconeComponent } from './components/lista-icone/lista-icone.component';
 import { SalvarListaComponent } from './components/salvar-lista/salvar-lista.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { MatIconModule} from '@angular/material/icon'
+import { MatCardModule } from '@angular/material/card'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatToolbarModule} from '@angular/material/toolbar'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule} from '@angular/material/form-field'
@@ -37,6 +41,7 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
     ListasSalvasComponent,
     ListaIconeComponent,
     SalvarListaComponent,
+    SnackBarComponent,
 
   ],
   imports: [
@@ -51,7 +56,10 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatIconModule
     
     
   ],
