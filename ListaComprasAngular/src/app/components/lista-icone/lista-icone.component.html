@@ -1,2 +1,30 @@
-<p>{{ descricao.nomeLista }} {{ descricao.totalFinal }}
-</p>
+<mat-card class="sera">
+    <mat-card-header>
+        <mat-card-title> {{ descricao.nomeLista }}</mat-card-title>
+        <mat-card-subtitle>Total: {{descricao.totalFinal }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+       
+        <!-- <button mat-icon-button >
+            <mat-icon svgIcon="iconeDeletar"></mat-icon>
+        </button> -->
+        <div class="linha1btn">
+            <button title="Deletar Lista" (click)="deletarLista()">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button title="Editar Lista">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+
+        <div class="linha2btn">
+            <button id="btn_modo_mercado" title="Entrar no Modo Mercado">
+                <mat-icon>local_grocery_store</mat-icon>
+            </button>
+            
+        </div>
+       
+
+    </mat-card-content>
+</mat-card>
