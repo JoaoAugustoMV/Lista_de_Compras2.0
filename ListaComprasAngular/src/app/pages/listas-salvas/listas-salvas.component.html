@@ -1,7 +1,6 @@
-<p>listas-salvas works!</p>
 
-<section *ngFor="let nomeLista of todasListas">
-    <app-lista-icone></app-lista-icone>
+<section *ngFor="let descricao of descricoes">
+    <app-lista-icone [descricao]="descricao"></app-lista-icone>
 
 </section>
 
