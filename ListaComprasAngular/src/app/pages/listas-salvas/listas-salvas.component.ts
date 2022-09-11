@@ -23,6 +23,19 @@ export class ListasSalvasComponent implements OnInit, OnChanges {
     this.receberNomesListas()
   }
 
+  atualizarDescricoes(nomeLista: string){
+    // console.log(this.descricoes, this.descricoes.length)
+    let descricoesRestantes = this.descricoes.filter((lista => {
+      if(lista.nomeLista != nomeLista){
+        return lista
+      }
+      else{
+        return false
+      }
+    }))
+    this.descricoes = descricoesRestantes
+  }
+
   // Retornar apenas os nomes da lista
   receberNomesListas(): void{
     this.produtoService.retornarNomesListas().subscribe({

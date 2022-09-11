@@ -1,6 +1,6 @@
-
-<section *ngFor="let descricao of descricoes">
-    <app-lista-icone [descricao]="descricao"></app-lista-icone>
-
-</section>
+<!-- <button (click)="mostrarDescricoes()">Mostrar</button> -->
+    <section *ngFor="let descricao of descricoes" >
+        <app-lista-icone (eventDescricoes)="atualizarDescricoes(descricao.nomeLista)" [descricao]="descricao"></app-lista-icone>
+    
+    </section>
 
