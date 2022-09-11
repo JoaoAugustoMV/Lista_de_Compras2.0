@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,26 +25,31 @@ import com.example.api_listacompras.service.ProdutosService;
 public class ProdutosController {
     
     @Autowired // Injeção de Dependencia
-    ProdutosService listaProdutosService;
+    ProdutosService produtosService;
 
      // Retorna os nomes lista unicos, ou seja cada lista(apenas o nome)
     @GetMapping("")
     public List<String> getAllNomesListas(){
-        return listaProdutosService.getAllNomesListas();
+        return produtosService.getAllNomesListas();
     }
 
     // Retorna a lista desejada
     @GetMapping("/{nomeLista}")
     public List<Produtos> getAllByNomeLista(@PathVariable String nomeLista){
         System.out.println("GET");
-        return listaProdutosService.getAllByNomeLista(nomeLista);
+        return produtosService.getAllByNomeLista(nomeLista);
     }
 
     // Publica nova lista
     @PostMapping("/{nomeLista}")
-    public void postListaProdutos(@PathVariable String nomeLista,
+    public void postprodutos(@PathVariable String nomeLista,
     @RequestBody List<Produtos> novaLista){
-        listaProdutosService.saveAllListaProdutos(novaLista);
+        produtosService.saveAllListaProdutos(novaLista);
+    }
+
+    @PutMapping("/{nomeLista}")
+    public void putLista(@PathVariable String nomeLista, @RequestBody List<Produtos> listaAtulizada){
+        produtosService.updateListaProdutos(nomeLista, listaAtulizada);
     }
 
     // Para o navegador
@@ -51,6 +58,13 @@ public class ProdutosController {
         System.out.println("OPCAO");
         return new ResponseEntity<>("Deu certo", HttpStatus.OK);
     } 
+
+    @DeleteMapping("/{nomeLista}")
+    public void deletarLista(@PathVariable String nomeLista){
+        produtosService.deleteByNomeLista(nomeLista);
+
+        // return ("A lista " + nomeLista + " foi apagada");
+    }
     
     
 }
