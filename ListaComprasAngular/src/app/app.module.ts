@@ -25,7 +25,9 @@ import { MatFormFieldModule} from '@angular/material/form-field'
 import { MatButtonModule} from '@angular/material/button'
 import { MatTableModule} from '@angular/material/table'
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-
+import { JanelaModalComponent } from './components/janela-modal/janela-modal.component';
+import { EditarListaComponent } from './pages/editar-lista/editar-lista.component';
+import { ConfirmarEdicaoComponent } from './components/confirmar-edicao/confirmar-edicao.component';
 
 
 
@@ -42,6 +44,9 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
     ListaIconeComponent,
     SalvarListaComponent,
     SnackBarComponent,
+    JanelaModalComponent,
+    EditarListaComponent,
+    ConfirmarEdicaoComponent,
 
   ],
   imports: [
