@@ -2,9 +2,10 @@ p{
     /* background-color: red ; */
     margin:0;
     color: rgb(241, 241, 241);
+    text-align: center;
 }
 
-::ng-deep .teste{
+::ng-deep .snackBarPadrao{
     background-color: #424242;
     font-size: 22px !important;
  }
