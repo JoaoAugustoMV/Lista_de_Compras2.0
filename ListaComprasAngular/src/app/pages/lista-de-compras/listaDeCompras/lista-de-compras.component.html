@@ -32,9 +32,11 @@
         </section>
 
         <!-- [nProdutos] monitora as adiçoes de produtos para atualizar o total final -->
-        <app-tabela-produtos  [nProdutos]="listaProdutos.length" [listaProdutos]="listaProdutos" ></app-tabela-produtos>
+        <app-tabela-produtos  [nProdutos]="listaProdutos.length" [listaProdutosTabela]="listaProdutos" (eventRemoverProduto)="removerProduto($event)"></app-tabela-produtos>
 
         <button type="submit" (click)="salvarLista()">Salvar Lista</button>
+        <button type="submit" (click)="cancelar()">Cancelar</button>
+        <button type="submit" (click)="removerTodosProdutos()">Remover Todos</button>
       
     
    

@@ -7,20 +7,30 @@
     <ng-container matColumnDef="preco">
         <th mat-header-cell *matHeaderCellDef>Preco</th>
         <td mat-cell *matCellDef="let element"> 
-            <input mat-input type="number" name="" class="{{ element.nome }}Preco" [value]="element.preco" (change)="atualizarProduto(element)"> 
+            <input mat-input type="number" name="" class="{{ element.nome.replaceAll(' ', '') }}Preco" [value]="element.preco" (change)="atualizarProduto(element)"> 
         </td>
       </ng-container>
 
     <ng-container matColumnDef="quantidade">
         <th mat-header-cell *matHeaderCellDef>Quantidade</th>
         <td mat-cell *matCellDef="let element">
-            <input mat-input type="number" name="" class="{{ element.nome }}Quantidade" [value]="element.quantidade" (change)="atualizarProduto(element)">
+            <input mat-input type="number" name="" class="{{ element.nome.replaceAll(' ', '') }}Quantidade" [value]="element.quantidade" (change)="atualizarProduto(element)">
          </td>
       </ng-container>
 
     <ng-container matColumnDef="total">
         <th mat-header-cell *matHeaderCellDef>Total</th>
-        <td mat-cell *matCellDef="let element"> {{ element.total }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.total }}
+          <button title="Remover Produto" (click)="cliqueRemoverProduto(element)">
+            <mat-icon>delete</mat-icon>
+          </button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Teste">
+        <th mat-header-cell *matHeaderCellDef>Botao</th>
+        <td mat-cell *matCellDef="let element"> 
+          </td>
+        
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
