@@ -52,12 +52,12 @@ public class ProdutosController {
         produtosService.updateListaProdutos(nomeLista, listaAtulizada);
     }
 
-    // Para o navegador
-    @RequestMapping(value="/{nomeLista}", method = RequestMethod.OPTIONS)
-    public ResponseEntity<String> respostaOptions(){
-        System.out.println("OPCAO");
-        return new ResponseEntity<>("Deu certo", HttpStatus.OK);
-    } 
+    // // Para o navegador
+    // @RequestMapping(value="/{nomeLista}", method = RequestMethod.OPTIONS)
+    // public ResponseEntity<String> respostaOptions(){
+    //     System.out.println("OPCAO");
+    //     return new ResponseEntity<>("Deu certo", HttpStatus.OK);
+    // } 
 
     @DeleteMapping("/{nomeLista}")
     public void deletarLista(@PathVariable String nomeLista){
