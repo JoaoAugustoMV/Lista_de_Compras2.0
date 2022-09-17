@@ -1,10 +1,11 @@
 <h1 mat-dialog-title>Deletar Lista</h1>
 <div mat-dialog-content>
-  <p>Tem certeza que deseja deletar a lista <strong>{{ descricao.nomeLista }}</strong>? </p>
+  <!-- <p>Tem certeza que deseja deletar a lista <strong>{{ data.nomeLista }}</strong>? </p> -->
+  <p>{{ data.mensagem}} </p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="fechar()">Cancelar</button>
-  <button mat-button (click)="confirmarDeletarLista()" cdkFocusInitial>Deletar Lista</button>
+  <button mat-button (click)="confirmar()" cdkFocusInitial>Confirmar</button>
 </div>
 
 <!-- "  [mat-dialog-close]="nsei" -->

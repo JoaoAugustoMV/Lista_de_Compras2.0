@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/listaDeCompras/lista-de-compras.component';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { JanelaModalComponent } from '../janela-modal/janela-modal.component';
-import { Descricao } from '../models/descricao.class';
+import { Descricao } from '../../models/descricao.class';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
@@ -39,15 +39,14 @@ export class ListaIconeComponent implements OnInit{
 
   editarLista(){
     const urlEditar = "editarLista/"
-    // console.log(urlEditar + this.descricao.nomeLista)
     this.router.navigateByUrl(urlEditar + this.descricao.nomeLista)
     
   }
   // Abrir MatDialogo
-  abrirDialog(){
+  cliqueEmRemover(){
     const dialogRef = this.dialog.open(JanelaModalComponent, {
       width: '300px',
-      data: this.descricao,
+      data: {mensagem: `Tem certeza que deseja excluir a lista ${this.descricao.nomeLista}`},
       disableClose: false,
       hasBackdrop: true
     })
@@ -65,8 +64,8 @@ export class ListaIconeComponent implements OnInit{
           panelClass: 'snackBarPadrao', // Classe CSS
           data: { mensagem: `A lista ${this.descricao.nomeLista} foi apagada` }
         } 
-        ); // End:4 eventoConfirmar()
-      }); // End:3 subscribe()
+        ) // End:4 eventoConfirmar()
+      }) // End:3 subscribe()
     } // End:2 eventoConfirmar()
     
     // DELETE Lista
