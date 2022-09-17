@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, } from '@angular/core';
-import { Descricao } from 'src/app/components/models/descricao.class';
+import { Descricao } from 'src/app/models/descricao.class';
 import { ListaIconeService } from 'src/app/services/lista-icone.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -24,7 +24,7 @@ export class ListasSalvasComponent implements OnInit, OnChanges {
   }
 
   atualizarDescricoes(nomeLista: string){
-    // console.log(this.descricoes, this.descricoes.length)
+
     let descricoesRestantes = this.descricoes.filter((lista => {
       if(lista.nomeLista != nomeLista){
         return lista
@@ -67,6 +67,6 @@ export class ListasSalvasComponent implements OnInit, OnChanges {
       complete: () => { // Só é adicionada APOS a Promisse ser cumprida,
         this.descricoes.push( new Descricao(nomeLista, totalFinal)) // 
       }}) // end subscribe
-      // console.log('after subs',  nomeLista, totalFinal)
+
   } // end descreverLista()
 } // end component
