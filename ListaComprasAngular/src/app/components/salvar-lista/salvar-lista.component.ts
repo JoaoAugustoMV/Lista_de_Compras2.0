@@ -22,6 +22,8 @@ export class SalvarListaComponent implements OnInit {
                 private snackBar: MatSnackBar,
                 private rotas: Router) {}
   ngOnInit(): void {
+      this.nomeLista = this.data.nomeLista
+    
     // throw new Error('Method not implemented.');
   }
   
@@ -30,27 +32,40 @@ export class SalvarListaComponent implements OnInit {
   }
   
   salvarLista(){
-    const nomeLista = this.data.nomeLista
-    const lista = this.data.lista // Array de Produtos
+    let listasAtuais!: string[]
+    this.produtoService.retornarNomesListas().subscribe(
+      {next: (listas) => {
+        
+        listasAtuais = listas
+      }, complete: () => {
 
-    for (let item of lista){
-      // item.nomeLista = nomeLista
-      for(let dado in item){
-        item['nomeLista'] = nomeLista
-      } 
-    } // end for 
-    console.log("lista = " + JSON.stringify(lista))
-    console.log(lista)
+       // FOR: Para informa de qual lista o produto é 
+        for (let produto of this.data.lista){ // Percorre o array de Produtos
+          produto['nomeLista'] = this.nomeLista 
+        }   
 
-    this.produtoService.adicionarLista(nomeLista, lista).subscribe((resposta) => console.log(resposta))
-    this.abrirSnackBar()
-    this.rotas.navigateByUrl('/')
-  }
+        if(listasAtuais.includes(this.nomeLista)){ // Se lista já existe, ou seja, metodo PUT
+          this.produtoService.atualizarLista(this.nomeLista, this.data.lista).subscribe()
+          
+        } else { // Se a lista ainda não existe, ou seja metodo POST
+            this.produtoService.adicionarLista(this.nomeLista, this.data.lista).subscribe((resposta) => {
+
+            })
+        } // end else
+        this.abrirSnackBar()
+        this.rotas.navigateByUrl('/')
+      } // End:4
+
+    }) // end subscribe
+
+  } // End salvarLista
 
   abrirSnackBar(){
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 4000,
-      panelClass: 'teste'
+      panelClass: 'snackBarPadrao',
+      data: { mensagem : "Sua Lista foi Salva!"},
+
     })
   }
 }

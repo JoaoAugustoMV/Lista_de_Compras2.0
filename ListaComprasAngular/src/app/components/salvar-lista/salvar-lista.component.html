@@ -3,10 +3,10 @@
   <p>Digite o nome da lista</p>
   <mat-form-field appearance="fill">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="data.nomeLista">
+    <input matInput [(ngModel)]="nomeLista" [value]="nomeLista">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="fechar()">No Thanks</button>
+  <button mat-button (click)="fechar()">Cancelar</button>
   <button mat-button  (click)="salvarLista()" [mat-dialog-close]="nsei" cdkFocusInitial>Salvar Lista</button>
 </div>
