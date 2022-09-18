@@ -5,6 +5,8 @@ import * as $ from 'jquery';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { JanelaModalComponent } from 'src/app/components/janela-modal/janela-modal.component';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-tabela-produtos',
@@ -25,18 +27,42 @@ export class TabelaProdutosComponent implements OnInit {
   @Output() eventRemoverProduto = new EventEmitter<Produto[]>()
   
   dataSource!: MatTableDataSource<Produto>
-  constructor(private dialog: MatDialog) { }
 
+  listaCheck: Produto[] = []
+  
+  constructor(private dialog: MatDialog, private router: Router) { }
+  
   ngOnInit(): void {
-    this.atualizarTotalFinal()
+  
+    this.verificarRota()
   }
   ngOnChanges(): void{
-    this.atualizarTotalFinal()
-    
+
+    this.verificarRota()
+    this.calcularTotal(this.listaProdutosTabela)
     this.dataSource = new MatTableDataSource(this.listaProdutosTabela)
-    console.log(this.listaProdutosTabela)
+	
     
   }
+
+
+  calcularTotal(lista: Produto[]): number{
+   let total = 0
+    for(let produto of lista){
+      total += produto.total
+   }
+
+   return total
+  }
+
+  atualizarCheck(produtoAlterado: Produto){ // Monitora o clique no check
+    if(this.listaCheck.includes(produtoAlterado)){ // Se o item estiver checkado, apos o clique devera estar uncheck
+		this.listaCheck = this.listaCheck.filter(produto => produto.nome != produtoAlterado.nome)
+    } else{ // Se o item estiver uncheck, apos o clique devera ficar check
+      this.listaCheck.push(produtoAlterado) 
+    }
+
+  } // End atualizarCheck
 
   // Atualiza tanto o total do produto na celula total, quanto na lista de Produtos
   atualizarProduto(produtoAlterado: Produto):void{
@@ -58,16 +84,9 @@ export class TabelaProdutosComponent implements OnInit {
     
     this.dataSource = new MatTableDataSource(this.listaProdutosTabela)
 
-    this.atualizarTotalFinal()
+
   } // end atualizaProduto
 
-  atualizarTotalFinal(): void {
-    let soma = 0
-    for(let produto of this.listaProdutosTabela) { 
-      soma += produto.total
-    }
-    $('#TotalFinal').text(soma.toString())
-  }
 
   cliqueRemoverProduto(produtoParaRemover: Produto){
     this.abrirDialog(produtoParaRemover)
@@ -101,6 +120,12 @@ export class TabelaProdutosComponent implements OnInit {
     this.eventRemoverProduto.emit(novaLista)
   }
    
+  verificarRota(){
+    if(this.router.url.includes('modoMercado')){
+      return true
+    } 
+    return false
+  }
 
 
 }
