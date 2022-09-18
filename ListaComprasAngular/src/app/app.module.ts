@@ -10,9 +10,11 @@ import { FooterComponent} from "./components/footer/footer.component"
 import { ListaDeComprasComponent} from "./pages/lista-de-compras/listaDeCompras/lista-de-compras.component"
 import { TabelaProdutosComponent } from './pages/lista-de-compras/tabela-produtos/tabela-produtos.component';
 import { ListasSalvasComponent } from './pages/listas-salvas/listas-salvas.component'
-import { ListaIconeComponent } from './components/lista-icone/lista-icone.component';
+import { ListaIconeComponent } from './pages/listas-salvas/lista-icone/lista-icone.component';
 import { SalvarListaComponent } from './components/salvar-lista/salvar-lista.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { JanelaModalComponent } from './components/janela-modal/janela-modal.component';
+import { ModoMercadoComponent } from './pages/modoMercado/modo-mercado/modo-mercado.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -25,8 +27,7 @@ import { MatFormFieldModule} from '@angular/material/form-field'
 import { MatButtonModule} from '@angular/material/button'
 import { MatTableModule} from '@angular/material/table'
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { JanelaModalComponent } from './components/janela-modal/janela-modal.component';
-
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 
 
@@ -43,6 +44,7 @@ import { JanelaModalComponent } from './components/janela-modal/janela-modal.com
     SalvarListaComponent,
     SnackBarComponent,
     JanelaModalComponent,
+    ModoMercadoComponent,
   
 
   ],
@@ -61,7 +63,8 @@ import { JanelaModalComponent } from './components/janela-modal/janela-modal.com
     MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
     
     
   ],
