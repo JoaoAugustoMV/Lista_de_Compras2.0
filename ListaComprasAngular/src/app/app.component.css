@@ -1,10 +1,23 @@
+html{
+    --fundo1: #000000;
+    --fonte: #2f2600;
+    --hiperlink: #6b5b18;
+    --toque: #af9930;
+    --fundo2: #fade4b;
+
+    --cinzaForte: #424242;
+    --cinzaFraco: #949494;
+    background-color: var(--fundo1);
+}
+
 #conteudo{
-    background-color: rgb(189, 189, 189);
+    background-color: var(--cinzaForte);
     padding: 10px;
-    max-width: 80vw;
+    max-width: 90vw;
     margin: auto;
 
     display: flex;
     justify-content: center;
+    border-radius: 10px;
+    width: 80vw;
 }
-

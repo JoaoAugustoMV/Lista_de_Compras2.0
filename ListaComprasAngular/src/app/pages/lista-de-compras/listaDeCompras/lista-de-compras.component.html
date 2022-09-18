@@ -16,7 +16,7 @@
         
         
         
-            <section class="InputsNumeros">
+            <section class="InputsNumeros" >
                 <mat-form-field appearance="fill" floatLabel="always">
                     <mat-label  for="precoProduto">Preco</mat-label>
                     <input matInput #precoProduto type="number" name="" id="precoProduto" placeholder="0">
@@ -28,15 +28,17 @@
                 </mat-form-field>
             </section>
 
-            <button mat-raised-button (click)="adicionarProduto(nomeProduto, precoProduto, quantidadeProduto)">Adicionar</button>
+            <button mat-raised-button color="primary" (click)="adicionarProduto(nomeProduto, precoProduto, quantidadeProduto)" >Adicionar</button>
         </section>
 
         <!-- [nProdutos] monitora as adiçoes de produtos para atualizar o total final -->
         <app-tabela-produtos  [nProdutos]="listaProdutos.length" [listaProdutosTabela]="listaProdutos" (eventRemoverProduto)="removerProduto($event)"></app-tabela-produtos>
 
-        <button type="submit" (click)="salvarLista()">Salvar Lista</button>
-        <button type="submit" (click)="cancelar()">Cancelar</button>
-        <button type="submit" (click)="removerTodosProdutos()">Remover Todos</button>
+        <section class="botoes">
+            <button mat-raised-button color="warn" type="submit" (click)="abrirDialogRemoverTodos()">Remover Todos</button>
+            <button mat-raised-button color="primary" type="submit" (click)="salvarLista()">Salvar Lista</button>
+            <button mat-raised-button color="basic" type="submit" (click)="cancelar()">Cancelar</button>
+        </section>
       
     
    

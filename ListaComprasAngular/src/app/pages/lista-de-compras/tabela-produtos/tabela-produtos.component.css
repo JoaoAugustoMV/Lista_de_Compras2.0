@@ -1,8 +1,49 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 table {
     width: 100%;
+}
+
+th{
+    width: 15vw;
+    text-align: center;
+}
+
+td{
+    height: 10vh;
+}
+
+.colunaTotal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input{
+    background-color: #949494;
+    width: 8vw;
+    text-align: right;
+    margin-right: 10px;
+    color: white;
+    border-radius:2px;
 }
 
 .full-width {
     font-size: 14px;
     width: 100%;
+}
+
+.footerTotalRiscados{
+    /* background-color: red; */
+    display: none;
 }
