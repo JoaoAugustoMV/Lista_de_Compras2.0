@@ -1,10 +1,11 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/models/produto.class';
 import { SalvarListaComponent } from 'src/app/components/salvar-lista/salvar-lista.component';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { JanelaModalComponent } from 'src/app/components/janela-modal/janela-modal.component';
 
 
 
@@ -60,7 +61,7 @@ export class ListaDeComprasComponent implements OnInit {
 
 
   salvarLista(): void{  
-    this.openDialog()
+    this.abrirDialogSalvar()
   }
 
   cancelar(){
@@ -68,7 +69,7 @@ export class ListaDeComprasComponent implements OnInit {
   }
 
   // Abrir janela para Salvar Lista
-  openDialog(): void {
+  abrirDialogSalvar(): void {
     const dialogRef = this.dialog.open(SalvarListaComponent, {
       width: '300px',
       data: {nomeLista: this.nomeLista, lista: this.listaProdutos},
@@ -90,6 +91,23 @@ export class ListaDeComprasComponent implements OnInit {
 
   removerTodosProdutos(){
     this.listaProdutos = []
+  }
+
+  abrirDialogRemoverTodos(){
+    const dialogRef = this.dialog.open(JanelaModalComponent,{
+      width: '350px',
+      data: {mensagem: "Tem certeza que deseja remover todos os produtos?"},
+      disableClose: false,
+      hasBackdrop: true
+    })
+    this.eventoConfirmarRemocao(dialogRef)
+  }
+
+  eventoConfirmarRemocao(dialogRef: MatDialogRef<JanelaModalComponent>){
+    dialogRef.componentInstance.eventConfirmar.subscribe(() =>{
+      this.removerTodosProdutos()
+      dialogRef.close()
+    })
   }
   
 
