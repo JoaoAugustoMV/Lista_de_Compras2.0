@@ -9,22 +9,20 @@
         <!-- <button mat-icon-button >
             <mat-icon svgIcon="iconeDeletar"></mat-icon>
         </button> -->
-        <div class="linha1btn">
-            <button title="Deletar Lista" (click)="cliqueEmRemover()">
+        <div class="btns">
+            <button mat-raised-button color="warn" title="Deletar Lista" (click)="cliqueEmRemover()">
                 <mat-icon>remove_shopping_cart</mat-icon>
             </button>
             
-            <button title="Editar Lista" (click)="editarLista()">
-                <mat-icon>edit</mat-icon>
-            </button>
-        </div>
-
-        <div class="linha2btn">
-            <button id="btn_modo_mercado" title="Entrar no Modo Mercado">
+            <button mat-raised-button color="primary" id="btn_modo_mercado" title="Entrar no Modo Mercado" (click)="entrarModoMercado(descricao)">
                 <mat-icon>local_grocery_store</mat-icon>
             </button>
-            
+            <button mat-raised-button color="accent" title="Editar Lista" (click)="editarLista()">
+                <mat-icon>edit</mat-icon>
+            </button>
+
         </div>
+
        
 
     </mat-card-content>

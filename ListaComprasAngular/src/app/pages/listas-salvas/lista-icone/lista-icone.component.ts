@@ -6,9 +6,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/listaDeCompras/lista-de-compras.component';
 import { ProdutoService } from 'src/app/services/produto.service';
-import { JanelaModalComponent } from '../janela-modal/janela-modal.component';
-import { Descricao } from '../../models/descricao.class';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { JanelaModalComponent } from '../../../components/janela-modal/janela-modal.component';
+import { Descricao } from '../../../models/descricao.class';
+import { SnackBarComponent } from '../../../components/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-lista-icone',
@@ -73,6 +73,13 @@ export class ListaIconeComponent implements OnInit{
       this.produtoService.deletarLista(this.descricao.nomeLista).subscribe()
       this.eventDescricoes.emit(this.descricao.nomeLista) // Emite para o Componente Pai a mudança
       
+    }
+
+
+    entrarModoMercado(descricao: Descricao){
+      console.log(descricao)
+      let urlModoMercado = '/modoMercado/'
+      this.router.navigateByUrl(urlModoMercado + descricao.nomeLista)
     }
 } // End:1 componente
 

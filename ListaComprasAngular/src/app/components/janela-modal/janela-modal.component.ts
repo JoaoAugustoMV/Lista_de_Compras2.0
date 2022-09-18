@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProdutoService } from 'src/app/services/produto.service';
-import { ListaIconeComponent } from '../lista-icone/lista-icone.component';
+import { ListaIconeComponent } from '../../pages/listas-salvas/lista-icone/lista-icone.component';
 import { Descricao } from '../../models/descricao.class';
 
 @Component({
