@@ -25,11 +25,11 @@
     <ng-container matColumnDef="total">
         <th mat-header-cell *matHeaderCellDef>Total</th>
         <td class="colunaTotal" mat-cell *matCellDef="let element"><p> {{ element.total }}</p>
-          <button mat-raised-button color="warn" title="Remover Produto" (click)="cliqueRemoverProduto(element)">
+          <button mat-raised-button color="warn" title="Remover Produto" (click)="cliqueRemoverProduto(element)" >
             <mat-icon>delete</mat-icon>
           </button> 
           
-          <section *ngIf="verificarRota()" class="btnsCheckbox">
+          <section *ngIf="verificarRotaMercado()" class="btnsCheckbox">
             <mat-checkbox (change)="atualizarCheck(element)">OK</mat-checkbox>
           </section>
         </td>
@@ -40,15 +40,24 @@
       <ng-container matColumnDef="TotalRiscados" >
         <td mat-footer-cell *matFooterCellDef colspan="3"> TOTAL ATUAL </td>
       </ng-container>
-      <ng-container matColumnDef="TotalRiscadosNum">
 
+      <ng-container matColumnDef="TotalRiscadosNum">
         <td mat-footer-cell *matFooterCellDef> {{ calcularTotal(this.listaCheck)}} </td>
       </ng-container>
       <!-- End Footer para o Modo Mercado --> 
 
+      <ng-container matColumnDef="TotalRestante">
+        <td mat-footer-cell *matFooterCellDef colspan="3"> TOTAL RESTANTE </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="TotalRestanteNum">
+        <td mat-footer-cell *matFooterCellDef> {{ calcularTotal(this.listaProdutosTabela) - calcularTotal(this.listaCheck) }} </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>  <!-- Referencias do Header -->
       <tr mat-row *matRowDef="let linha; columns: colunasExibidas"></tr> <!-- Referencias das Linhas-->
-      <tr mat-footer-row *matFooterRowDef="['TotalRiscados', 'TotalRiscadosNum']" [ngClass]="{footerTotalRiscados: !verificarRota()}" ></tr> <!-- Referencias do Footer TotalRiscados -->
+      <tr mat-footer-row *matFooterRowDef="['TotalRiscados', 'TotalRiscadosNum']" [ngClass]="{footerTotalRiscados: !verificarRotaMercado()}" ></tr> <!-- Referencias do Footer TotalRiscados -->
+      <tr mat-footer-row *matFooterRowDef="['TotalRestante', 'TotalRestanteNum']" [ngClass]="{footerTotalRiscados: !verificarRotaMercado()}" ></tr>
       <tr mat-footer-row *matFooterRowDef="colunasExibidas"></tr> <!-- Referencias do Footer TotalFinal -->
 
 </table>

@@ -22,23 +22,23 @@ export class TabelaProdutosComponent implements OnInit {
     'total'
   ]
   @Input() listaProdutosTabela: Array<Produto> = []
-  @Input() nProdutos!: number
+  @Input() nProdutos!: number // Monitora a adiçao ou remoção de produtos da lista
 
   @Output() eventRemoverProduto = new EventEmitter<Produto[]>()
   
   dataSource!: MatTableDataSource<Produto>
 
-  listaCheck: Produto[] = []
+  listaCheck: Produto[] = [] // Produtos Riscados
   
   constructor(private dialog: MatDialog, private router: Router) { }
   
   ngOnInit(): void {
   
-    this.verificarRota()
+    // this.verificarRotaMercado()
   }
   ngOnChanges(): void{
 
-    this.verificarRota()
+    // this.verificarRotaMercado()
     this.calcularTotal(this.listaProdutosTabela)
     this.dataSource = new MatTableDataSource(this.listaProdutosTabela)
 	
@@ -56,6 +56,7 @@ export class TabelaProdutosComponent implements OnInit {
   }
 
   atualizarCheck(produtoAlterado: Produto){ // Monitora o clique no check
+    
     if(this.listaCheck.includes(produtoAlterado)){ // Se o item estiver checkado, apos o clique devera estar uncheck
 		this.listaCheck = this.listaCheck.filter(produto => produto.nome != produtoAlterado.nome)
     } else{ // Se o item estiver uncheck, apos o clique devera ficar check
@@ -120,7 +121,7 @@ export class TabelaProdutosComponent implements OnInit {
     this.eventRemoverProduto.emit(novaLista)
   }
    
-  verificarRota(){
+  verificarRotaMercado(){
     if(this.router.url.includes('modoMercado')){
       return true
     } 
