@@ -1,3 +1,17 @@
+div{
+    display: flex;
+    justify-content: center;
+}
 p{
-    background-color: aqua;
+    --cinzaForte: #424242;
+    --cinzaFraco: #949494;
+    background-color: var(--cinzaForte);
+
+    position: absolute;
+    bottom: 10px;
+
+    color:white;
+    width: 5vw;
+    height: 2vh;
+
 }
