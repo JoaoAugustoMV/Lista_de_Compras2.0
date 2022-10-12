@@ -1,12 +1,14 @@
-<h1 mat-dialog-title>Salvar Lista</h1>
-<div mat-dialog-content>
-  <p>Digite o nome da lista</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="nomeLista" [value]="nomeLista">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="fechar()">Cancelar</button>
-  <button mat-button  (click)="salvarLista()" [mat-dialog-close]="nsei" cdkFocusInitial>Salvar Lista</button>
+<div id="salvar-lista-componente">
+  <h1 mat-dialog-title>Salvar Lista</h1>
+  <div mat-dialog-content>
+    <p>Digite o nome da lista</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="nomeLista" [value]="nomeLista">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="fechar()">Cancelar</button>
+    <button mat-button  (click)="salvarLista()" [mat-dialog-close]="nsei" cdkFocusInitial>Salvar Lista</button>
+  </div>
 </div>

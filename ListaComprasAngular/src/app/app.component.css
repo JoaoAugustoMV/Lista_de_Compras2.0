@@ -1,4 +1,9 @@
-html{
+*{
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+body{
     --fundo1: #000000;
     --fonte: #2f2600;
     --hiperlink: #6b5b18;
@@ -8,16 +13,38 @@ html{
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
     background-color: var(--fundo1);
+    width: 100%;
+
+    display: flex;
+    flex-flow: column;
+}
+
+#header{
+    flex-grow: 0;
+    flex-basis: auto;
+    
 }
 
 #conteudo{
     background-color: var(--cinzaForte);
     padding: 10px;
     max-width: 90vw;
-    margin: auto;
+    min-height: 100%;
+    margin: 0px auto ;
 
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    width: 80vw;
+    flex-grow: 1;
+    flex-basis: auto;
+    
+    
 }
+
+#footer{
+    flex-grow: 0;
+    flex-basis: 100px;
+    
+
+}
+/* ng build --configuration development --output-path docs --base-href /Lista_de_Compras2.0/     */
