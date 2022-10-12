@@ -77,7 +77,6 @@ export class ListaIconeComponent implements OnInit{
 
 
     entrarModoMercado(descricao: Descricao){
-      console.log(descricao)
       let urlModoMercado = '/modoMercado/'
       this.router.navigateByUrl(urlModoMercado + descricao.nomeLista)
     }

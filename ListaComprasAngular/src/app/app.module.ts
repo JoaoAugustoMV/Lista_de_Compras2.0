@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent} from "./components/header/header.component"
 import { FooterComponent} from "./components/footer/footer.component"
 import { ListaDeComprasComponent} from "./pages/lista-de-compras/listaDeCompras/lista-de-compras.component"
-import { TabelaProdutosComponent } from './pages/lista-de-compras/tabela-produtos/tabela-produtos.component';
+import { TabelaProdutosComponent } from './components/tabela-produtos/tabela-produtos.component';
 import { ListasSalvasComponent } from './pages/listas-salvas/listas-salvas.component'
 import { ListaIconeComponent } from './pages/listas-salvas/lista-icone/lista-icone.component';
 import { SalvarListaComponent } from './components/salvar-lista/salvar-lista.component';

@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-     
-        <section id="InputsProduto">
+     <h1>{{ verificarPaginaAtual(this.rotaAtual)[0] }}</h1>
+        <section id="InputsProduto" *ngIf="verificarPaginaAtual(this.rotaAtual)[1]">
             <mat-form-field appearance="fill">  
                 <mat-label for="nomeProduto">Nome do Produto</mat-label>
                 <input matInput #nomeProduto type="text" id="nomeProduto">
