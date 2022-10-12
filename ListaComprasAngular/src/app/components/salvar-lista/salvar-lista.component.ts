@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/listaDeCompras/lista-de-compras.component';
+import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/lista-de-compras.component';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 

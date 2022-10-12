@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent} from "./components/header/header.component"
 import { FooterComponent} from "./components/footer/footer.component"
-import { ListaDeComprasComponent} from "./pages/lista-de-compras/listaDeCompras/lista-de-compras.component"
+import { ListaDeComprasComponent} from "./pages/lista-de-compras/lista-de-compras.component"
 import { TabelaProdutosComponent } from './components/tabela-produtos/tabela-produtos.component';
 import { ListasSalvasComponent } from './pages/listas-salvas/listas-salvas.component'
 import { ListaIconeComponent } from './pages/listas-salvas/lista-icone/lista-icone.component';
