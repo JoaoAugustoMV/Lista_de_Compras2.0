@@ -41,20 +41,3 @@ testem.log
 .DS_Store
 Thumbs.db
 
-API_listaCompras/ComandosSQL/
-API_listaCompras/ListaCompras/
-
-API_listaCompras/ModeloBD.png
-API_listaCompras/testes.java
-
-API_listaCompras/.vscode
-
-dist
-docs
-.gitignore 
-.vscode
-.firebase
-.angular
-
-.browserslistrc
-ListaComprasAngular/docs/
