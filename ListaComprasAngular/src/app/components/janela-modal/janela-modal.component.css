@@ -1,0 +1,11 @@
+#janela-modal{
+    padding: 10px;
+}
+
+#botoes{
+    display: flex;
+    justify-content: space-between;
+}
+p{
+    text-align: center;
+}

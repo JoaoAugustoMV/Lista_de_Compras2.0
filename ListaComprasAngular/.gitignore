@@ -50,9 +50,11 @@ API_listaCompras/testes.java
 API_listaCompras/.vscode
 
 dist
+docs
 .gitignore 
 .vscode
 .firebase
 .angular
 
 .browserslistrc
+ListaComprasAngular/docs/

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "listadecompras-219c8": {
+      "hosting": {
+        "ListaComprasAngular": [
+          "listadecompras-219c8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "listadecompras-219c8"
+  }
+}

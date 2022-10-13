@@ -1,14 +1,12 @@
 div{
     display: flex;
-    justify-content: center;
+    justify-content: center;   
 }
 p{
+    margin-top: 2vh;
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
     background-color: var(--cinzaForte);
-
-    position: absolute;
-    bottom: 10px;
 
     color: white;
     width: 22vw;

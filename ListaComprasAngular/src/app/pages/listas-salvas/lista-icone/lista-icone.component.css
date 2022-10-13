@@ -3,7 +3,8 @@
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
     width: 35vw;
-    margin:10px;
+    height: 18vh;
+    margin: 2vh 2vw ;
     display: flex;
     flex-direction: column;
     justify-content: center;

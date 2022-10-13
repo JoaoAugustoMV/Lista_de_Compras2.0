@@ -4,7 +4,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/listaDeCompras/lista-de-compras.component';
+import { ListaDeComprasComponent } from 'src/app/pages/lista-de-compras/lista-de-compras.component';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { JanelaModalComponent } from '../../../components/janela-modal/janela-modal.component';
 import { Descricao } from '../../../models/descricao.class';
@@ -77,7 +77,6 @@ export class ListaIconeComponent implements OnInit{
 
 
     entrarModoMercado(descricao: Descricao){
-      console.log(descricao)
       let urlModoMercado = '/modoMercado/'
       this.router.navigateByUrl(urlModoMercado + descricao.nomeLista)
     }

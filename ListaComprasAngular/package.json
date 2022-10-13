@@ -6,7 +6,8 @@
     "start": "ng serve --proxy-config src/proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev": "lite-server --baseDir=\"dist/lista-compras-angular\""
   },
   "private": true,
   "dependencies": {
@@ -15,12 +16,14 @@
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "^14.0.0",
     "@angular/material": "~14.1.2",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "cors": "^2.8.5",
+    "firebase": "^9.12.0",
     "jquery": "^3.6.0",
     "rxjs": "~7.5.0",
     "zone.js": "~0.11.4"
@@ -38,6 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "lite-server": "^2.6.1",
     "tslib": "^2.4.0",
     "typescript": "~4.7.2"
   }

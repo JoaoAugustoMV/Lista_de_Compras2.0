@@ -7,14 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent} from "./components/header/header.component"
 import { FooterComponent} from "./components/footer/footer.component"
-import { ListaDeComprasComponent} from "./pages/lista-de-compras/listaDeCompras/lista-de-compras.component"
-import { TabelaProdutosComponent } from './pages/lista-de-compras/tabela-produtos/tabela-produtos.component';
+import { ListaDeComprasComponent} from "./pages/lista-de-compras/lista-de-compras.component"
+import { TabelaProdutosComponent } from './components/tabela-produtos/tabela-produtos.component';
 import { ListasSalvasComponent } from './pages/listas-salvas/listas-salvas.component'
 import { ListaIconeComponent } from './pages/listas-salvas/lista-icone/lista-icone.component';
 import { SalvarListaComponent } from './components/salvar-lista/salvar-lista.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { JanelaModalComponent } from './components/janela-modal/janela-modal.component';
-import { ModoMercadoComponent } from './pages/modoMercado/modo-mercado/modo-mercado.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -27,7 +26,14 @@ import { MatFormFieldModule} from '@angular/material/form-field'
 import { MatButtonModule} from '@angular/material/button'
 import { MatTableModule} from '@angular/material/table'
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics'
+
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth'
 
 
 
@@ -43,9 +49,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     ListaIconeComponent,
     SalvarListaComponent,
     SnackBarComponent,
-    JanelaModalComponent,
-    ModoMercadoComponent,
-  
+    JanelaModalComponent,  
 
   ],
   imports: [
@@ -64,12 +68,22 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatSnackBarModule,
     MatCardModule,
     MatIconModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+
+    // Firebase
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+
     
   ],
   entryComponents: [ SalvarListaComponent], 
-  providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
-  bootstrap: [AppComponent]
+  providers: 
+    [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}, ScreenTrackingService,UserTrackingService],
+    bootstrap: [AppComponent,
+    AngularFireAuth,
+    AngularFireAuthModule,
+    AngularFireModule
+    ],
+  
 })
 export class AppModule { }

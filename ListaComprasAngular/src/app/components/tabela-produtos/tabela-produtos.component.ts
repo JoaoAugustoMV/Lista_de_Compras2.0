@@ -114,10 +114,8 @@ export class TabelaProdutosComponent implements OnInit {
   }
 
   removerProduto(produtoParaRemover: Produto){
-    console.log('remover', this.listaProdutosTabela)
     this.listaProdutosTabela = this.listaProdutosTabela.filter((produto) => produto.nome !== produtoParaRemover.nome)
     const novaLista = this.listaProdutosTabela
-    console.log('removerD', novaLista)
     this.eventRemoverProduto.emit(novaLista)
   }
    
