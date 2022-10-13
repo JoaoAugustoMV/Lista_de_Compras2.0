@@ -1,5 +1,6 @@
-# Lista_de_Compras2.0
+# [Lista_de_Compras2.0](https://listadecompras-219c8.web.app)
 - Site web para criação e controle de listas de compras
+- [Link](https://listadecompras-219c8.web.app)
 
 # Funcionalidades
 - Criação de listas: Adicionar nome, preco e quantidade do produto
@@ -18,3 +19,4 @@
 - Java Spring: Framework para facilitar o desenvolvimento de aplicações
 - Java Spring Boot: Ferramenta que facilita o setup de aplicações Spring
 - MySQL: Banco de Dados Relacional para armazenamento das listas de compras
+- Site hospedado no [Firebase](https://firebase.google.com/?hl=pt)
