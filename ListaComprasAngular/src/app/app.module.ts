@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+// Componentes
 import { AppComponent } from './app.component';
 import { HeaderComponent} from "./components/header/header.component"
 import { FooterComponent} from "./components/footer/footer.component"
@@ -15,8 +17,7 @@ import { SalvarListaComponent } from './components/salvar-lista/salvar-lista.com
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { JanelaModalComponent } from './components/janela-modal/janela-modal.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
+// Angular Material
 import { MatIconModule} from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
@@ -29,11 +30,14 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
+// Firebase: Realtime Database
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics'
 
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth'
+
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 
 
@@ -73,6 +77,7 @@ import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/aut
     // Firebase
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    // AngularFireDatabase,
 
     
   ],
