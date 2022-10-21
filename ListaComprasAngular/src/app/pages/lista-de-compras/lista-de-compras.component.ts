@@ -6,6 +6,7 @@ import { Produto } from 'src/app/models/produto.class';
 import { SalvarListaComponent } from 'src/app/components/salvar-lista/salvar-lista.component';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { JanelaModalComponent } from 'src/app/components/janela-modal/janela-modal.component';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
 
 
 
@@ -18,10 +19,12 @@ export class ListaDeComprasComponent implements OnInit {
   listaProdutos: Array<Produto> = []
   rotaAtual!: string
   nomeLista!: string  
+  fireObject!: AngularFireObject<unknown>;
   
   constructor(private dialog: MatDialog,
     private router: Router,
-    private produtoService: ProdutoService) { 
+    private produtoService: ProdutoService,
+    private fireDB: AngularFireDatabase) { 
       
     }
     
@@ -30,16 +33,19 @@ export class ListaDeComprasComponent implements OnInit {
       this.nomeLista = this.rotaAtual.split("/").slice(-1)[0] //
       
       this.produtoService.retornarLista(this.nomeLista).subscribe({ 
-      next:
-        lista => {
-    
-          this.listaProdutos = lista
-        }, complete:  () => {
+        next: lista => {
+          for(let p in lista){
+            this.listaProdutos.push(lista[p])
 
-      }
+          } //end for
+            
+        } // end next
     }) // end subs
   } // end OnInit
   
+  // fireObject: AngularFireObject<any>:
+  
+
   // Retorna um array [texto do titulo, se deve aparecer os inputs]
   // Se for pagina Modo Mercado, os campos inputs não aparecerão 
   verificarPaginaAtual(url: string) { 

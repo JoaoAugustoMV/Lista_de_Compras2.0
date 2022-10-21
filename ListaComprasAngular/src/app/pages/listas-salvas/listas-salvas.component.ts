@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit, } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, } from '@angular/core';
 import { Descricao } from 'src/app/models/descricao.class';
-import { ListaIconeService } from 'src/app/services/lista-icone.service';
+import { Produto } from 'src/app/models/produto.class';
 import { ProdutoService } from 'src/app/services/produto.service';
 
 @Component({
@@ -9,22 +9,56 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./listas-salvas.component.css']
 })
 export class ListasSalvasComponent implements OnInit, OnChanges {
+  
+  @Input() descricoes: Descricao[] = [] // nomes das listas e seu total respectivo
 
-  todasListas: string[] = [] // Apenas os nomes
-  descricoes: Descricao[] = [] // nomes das listas e seu total respectivo
   constructor(private produtoService: ProdutoService, ) {
   }
   
   ngOnInit(): void {
-    this.receberNomesListas()
+    this.receberTodasListas()
+  }
+  ngOnChanges(changes: SimpleChanges){
+    console.log('OnChanges');
+  }
+
+ 
+  // Consulta o banco de dados com todas listas e adiciona no array descricoes
+  receberTodasListas(): void{
     
-  }
-  ngOnChanges(){
-    this.receberNomesListas()
+    this.produtoService.retornarTodasListas().subscribe({
+      next:listas => {
+        this.descricoes =  []
+
+        let nomesDasListas = Object.keys(listas); // Array dos nomes da Listas
+  
+        for(let nomeLista of nomesDasListas){ // Itera as listas
+
+          this.descreverLista(listas[nomeLista], nomeLista) // Calcula o total final da lista e add no descricoes
+    
+        }   
+        
+      } // end observer(parametro de subs)
+    }) // end subs
+    
+  } // End receberNomesListas
+
+  
+  descreverLista(lista: Array<Produto>, nomeLista: string){
+    let totalFinal: number = 0
+    console.log(typeof lista);
+  
+    for(let p in lista){
+      totalFinal += lista[p]['total']
+    }
+    let descricao = new Descricao(nomeLista, totalFinal)
+    
+    this.descricoes.push(descricao)
   }
 
-  atualizarDescricoes(nomeLista: string){
-
+  // Monitora o evento do componente filho(quando uma lista é excluida)
+  atualizarDescricoes(nomeLista: string){ // Retira do array descricoes a lista excluida
+        
     let descricoesRestantes = this.descricoes.filter((lista => {
       if(lista.nomeLista != nomeLista){
         return lista
@@ -32,41 +66,9 @@ export class ListasSalvasComponent implements OnInit, OnChanges {
       else{
         return false
       }
-    }))
+    })) // end filter
+     
     this.descricoes = descricoesRestantes
+
   }
-
-  // Retornar apenas os nomes da lista
-  receberNomesListas(): void{
-    this.produtoService.retornarNomesListas().subscribe({
-      next: nomeLista => {     
-        this.todasListas = nomeLista     // Array dos nomes   
-      }, // end next 
-
-      complete: () => { // 
-        for(let nomeLista of this.todasListas){
-          this.descreverLista(nomeLista)
-        } // end complete
-      }
-    }) // end subscribe
-    
-  } // End receberNomesListas
-
-
-  // Retorne o nomeLista e o total final da lista
-  descreverLista(nomeLista: string): void{ 
-
-    let totalFinal = 0
-    this.produtoService.retornarLista(nomeLista).subscribe({
-      next: lista => {
-        lista.forEach((produto) => {
-          totalFinal += produto.total
-        }) // end forEach
-        
-    }, 
-      complete: () => { // Só é adicionada APOS a Promisse ser cumprida,
-        this.descricoes.push( new Descricao(nomeLista, totalFinal)) // 
-      }}) // end subscribe
-
-  } // end descreverLista()
 } // end component

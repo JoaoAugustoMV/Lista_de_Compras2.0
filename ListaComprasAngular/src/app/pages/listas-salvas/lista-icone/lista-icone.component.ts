@@ -70,7 +70,8 @@ export class ListaIconeComponent implements OnInit{
     
     // DELETE Lista
     deletarLista(){
-      this.produtoService.deletarLista(this.descricao.nomeLista).subscribe()
+      this.produtoService.deletarLista(this.descricao.nomeLista)
+      
       this.eventDescricoes.emit(this.descricao.nomeLista) // Emite para o Componente Pai a mudança
       
     }
