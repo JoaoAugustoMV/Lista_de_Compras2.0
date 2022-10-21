@@ -16,8 +16,5 @@
 - Angular Material: Biblioteca com diversos componentes prontos para agilizar o desenvolvimento de aplicações em Angular
 
 ## BackEnd
-- Java Spring: Framework para facilitar o desenvolvimento de aplicações
-- Java Spring Boot: Ferramenta que facilita o setup de aplicações Spring
-- MySQL: Banco de Dados Relacional para armazenamento das listas de compras
-- Site hospedado no [Firebase](https://firebase.google.com/?hl=pt)
-- [Codigo Fonte](https://github.com/JoaoAugustoMV/API_ListaCompras)
+- Firebase Hosting
+- Firebase Realtime Database
