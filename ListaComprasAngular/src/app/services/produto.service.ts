@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Produto } from '../models/produto.class';
 import { Observable } from 'rxjs';
+import { AngularFireDatabase} from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root'
@@ -11,44 +11,51 @@ export class ProdutoService {
   
   private url = 'http://localhost:8080/api/listas/'
   private urlProdutos = 'http://localhost:8080/produtos/'
-  constructor(private httpClient: HttpClient) {
+  constructor(private fireDB: AngularFireDatabase) {
 
   }
 
 
-  // GET: Retornar os nomes das lista
-  retornarNomesListas(): Observable<string[]>{
-    return this.httpClient.get<string[]>(this.url)
+  // GET: Retornar todas as lista
+  retornarTodasListas(): Observable<any>{
+    return this.fireDB.object<string[]>('/').valueChanges()
   }
 
-  // GET By nomeLista: Filtra a tabela pela coluna nome_lista
-  retornarLista(nomeLista: string): Observable<Produto[]>{
-    return this.httpClient.get<Produto[]>(this.url + nomeLista);
+
+  // GET By: Retorna a lista especifica
+  retornarLista(nomeLista: string): Observable<any>{
+    
+    let fireObject = this.fireDB.object<Produto[]>(nomeLista)
+    return fireObject.valueChanges()
+
   }
 
   //POST: Adicionar nova Lista
-  adicionarLista(nomeLista: string, produtos: Produto[]): Observable<Produto[]>{ //  
-    const url = this.url + nomeLista
-
-
-
-
-    return this.httpClient.post<Produto[]>(url, produtos)
-  }
-
-  // PUT: Atualizar lista
-  atualizarLista(nomeLista: string,  produtos: Produto[]): Observable<Produto[]>{
-  
-    return this.httpClient.put<Produto[]>((this.url + nomeLista), produtos)
-  }
-  
-  // DELETE: Apagar todas ocorrencias de nomeLista
-  deletarLista(nomeLista: string): Observable<Produto[]>{
-    return this.httpClient.delete<Produto[]>(this.url + nomeLista)
-  }
-
+  adicionarLista(nomeLista: string, produtos: Produto[]): void{ //  
     
+    let fireObject = this.fireDB.object<Object>(nomeLista)
+
+    produtos.forEach((produto) => {
+      
+      fireObject.update({[produto.nome]: produto})
+    })
+
+  }
+
+  // // PUT: Atualizar lista
+  // atualizarLista(nomeLista: string,  produtos: Produto[]):  {
+  // }
+
+  
+  // DELETE: Deletar a lista especifica
+  deletarLista(nomeLista: string): void{
+
+    let fireObject = this.fireDB.object(`/${nomeLista}`)
+    
+    fireObject.remove()
+
+  } // 
 
 
-}
+} // end Service
 
