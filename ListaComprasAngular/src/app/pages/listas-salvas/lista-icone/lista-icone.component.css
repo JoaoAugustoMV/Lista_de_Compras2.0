@@ -2,8 +2,8 @@
 .mat-card{
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
-    width: 35vw;
-    height: 18vh;
+    width: 55vw;
+    height: 25vh;
     margin: 2vh 2vw ;
     display: flex;
     flex-direction: column;
@@ -20,11 +20,12 @@
     font-size: 40px;
     margin: 10px;
     margin-bottom: 25px;
+    font-size: 2em;
 }
 
 .mat-card-subtitle{
     color: var(--cinzaForte);
-    font-size: 20px;
+    font-size: 1.2em;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -45,10 +46,11 @@
 }
 button{
     /* border: 0px; */
-    width: 10vw;
+    display: inline-block;
+    width: 1vw;
     margin:10px;
 
 }
 .mat-icon{
-    padding:10px;
+    padding:0 ;
 }
