@@ -14,7 +14,6 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 export class SalvarListaComponent implements OnInit {
 
   @Input() apareceSalvarLista!: boolean
-  nsei = "Nao Sei"
   nomeLista!: string
     constructor(public dialogRef: MatDialogRef<ListaDeComprasComponent>, 
                 @Inject(MAT_DIALOG_DATA) public data: any,
@@ -32,31 +31,9 @@ export class SalvarListaComponent implements OnInit {
   }
   
   salvarLista(){
-    let listasAtuais!: string[]
-    this.produtoService.retornarNomesListas().subscribe(
-      {next: (listas) => {
-        
-        listasAtuais = listas
-      }, complete: () => {
 
-       // FOR: Para informa de qual lista o produto é 
-        for (let produto of this.data.lista){ // Percorre o array de Produtos
-          produto['nomeLista'] = this.nomeLista 
-        }   
-
-        if(listasAtuais.includes(this.nomeLista)){ // Se lista já existe, ou seja, metodo PUT
-          this.produtoService.atualizarLista(this.nomeLista, this.data.lista).subscribe()
-          
-        } else { // Se a lista ainda não existe, ou seja metodo POST
-            this.produtoService.adicionarLista(this.nomeLista, this.data.lista).subscribe((resposta) => {
-
-            })
-        } // end else
-        this.abrirSnackBar()
-        this.rotas.navigateByUrl('/')
-      } // End:4
-
-    }) // end subscribe
+    this.produtoService.adicionarLista(this.nomeLista, this.data.lista)
+    this.rotas.navigateByUrl('/')
 
   } // End salvarLista
 
