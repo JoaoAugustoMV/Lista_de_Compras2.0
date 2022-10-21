@@ -48,8 +48,8 @@ export class TabelaProdutosComponent implements OnInit {
 
   calcularTotal(lista: Produto[]): number{
    let total = 0
-    for(let produto of lista){
-      total += produto.total
+    for(let produto in lista){
+      total += lista[produto].total
    }
 
    return total
@@ -116,6 +116,8 @@ export class TabelaProdutosComponent implements OnInit {
   removerProduto(produtoParaRemover: Produto){
     this.listaProdutosTabela = this.listaProdutosTabela.filter((produto) => produto.nome !== produtoParaRemover.nome)
     const novaLista = this.listaProdutosTabela
+    
+    
     this.eventRemoverProduto.emit(novaLista)
   }
    
