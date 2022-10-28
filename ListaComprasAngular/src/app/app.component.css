@@ -29,7 +29,8 @@ body{
 #conteudo{
     background-color: var(--cinzaForte);
     padding: 10px;
-    max-width: 90vw;
+    min-width: 90vw;
+    max-width: 95vw;
     min-height: 100%;
     margin: 0px auto ;
 

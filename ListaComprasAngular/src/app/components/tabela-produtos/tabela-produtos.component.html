@@ -25,13 +25,15 @@
     <ng-container matColumnDef="total">
         <th mat-header-cell *matHeaderCellDef>Total</th>
         <td class="colunaTotal" mat-cell *matCellDef="let element"><p> {{ element.total }}</p>
-          <button mat-raised-button color="warn" title="Remover Produto" (click)="cliqueRemoverProduto(element)" >
-            <mat-icon>delete</mat-icon>
-          </button> 
-          
-          <section *ngIf="verificarRotaMercado()" class="btnsCheckbox">
-            <mat-checkbox (change)="atualizarCheck(element)">OK</mat-checkbox>
-          </section>
+          <div class="remover_e_riscar">
+            <button id="removerItem" mat-raised-button color="warn" title="Remover Produto" (click)="cliqueRemoverProduto(element)" >
+              <mat-icon>delete</mat-icon>
+            </button>
+            
+            <section *ngIf="verificarRotaMercado()" class="btnsCheckbox">
+              <mat-checkbox (change)="atualizarCheck(element)">OK</mat-checkbox>
+            </section>
+          </div>
         </td>
         <td mat-footer-cell *matFooterCellDef>{{ calcularTotal(this.listaProdutosTabela) }}</td>
       </ng-container>

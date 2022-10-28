@@ -15,15 +15,18 @@ nav{
     display: flex;
     justify-content: center;
     background-color: var(--cinzaForte);
-    width: 80vw;
+    
+    min-width: 90vw;
+    max-width: 95vw;
     margin:10px auto ;
     /* border: 1px solid var(--cinzaFraco); */
     border-radius: 10px;
 }
 span{
+    text-align: center;
     padding: 10px;
     margin: 10px;
-    width: 15vw;
+    max-width: 25vw;
     display: flex;
 }
 
@@ -35,8 +38,8 @@ a{
     text-decoration: none;
     color: white;
     font: 20px sans-serif;
-    width: 15vw;
-    height: 5vw;
+    width: 20vw;
+    height: 20vw;
     
 }
 nav a{

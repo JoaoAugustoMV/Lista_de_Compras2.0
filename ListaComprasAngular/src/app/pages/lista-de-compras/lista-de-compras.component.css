@@ -17,6 +17,10 @@ input::-webkit-inner-spin-button {
 input[type=number] { 
     -moz-appearance: textfield;
   }
+
+mat-form-field{
+    min-width: 70vw;
+}
 label{
     padding: 10px;
 }
@@ -25,13 +29,17 @@ table{
     border: 2px black solid;
 }
 
+
 #InputsProduto{
+    border-radius: 1vh;
     margin-bottom: 10px;
     background-color: gray;
-    width: 50vw;
+    min-width: 80vw;
+    max-width: 85vw;
     display: flex;
     flex-flow: column wrap;
     justify-content: center; 
+    align-items: center;
     padding: 10px;
 
 }
@@ -68,5 +76,23 @@ input[type="button"]{
 
 .botoes button{
     text-align: center;
+    margin: 5px;
     /* width: 120px; */
+}
+
+@media (max-width: 500px){
+    .InputsNumeros{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 2px;
+    }
+
+    .botoes{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px;
+    }
 }

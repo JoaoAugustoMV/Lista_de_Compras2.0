@@ -2,7 +2,7 @@
 .mat-card{
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
-    width: 55vw;
+    max-width: 65vw;
     height: 25vh;
     margin: 2vh 2vw ;
     display: flex;
