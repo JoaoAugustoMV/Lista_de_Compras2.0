@@ -8,7 +8,7 @@
     - Nomear e salvar lista
 - Editar ou excluir listas
 - Modo Mercado: Pagina pensada especialmente para usar em supermercados
-    - Nela é possivel, ir riscando já pegos e informar o total atual, o restante e o total final
+    - Nela é possivel, ir riscando itens já pegos e informar o total atual, a quantia restante e o total final
 
 ## FrontEnd
 - Angular: Framework de SPA feito para Javascript
