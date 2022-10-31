@@ -11,7 +11,8 @@ input[type=number] {
 }
 
 table {
-    min-width: 85vw;
+    /* min-width: 55vw; */
+    width: 45vw;
     
 }
 
@@ -22,7 +23,7 @@ th{
 
 td{
     height: 10vh;
-    width: 5vw;
+    width: 1vw;
 }
 
 .colunaTotal{
@@ -33,6 +34,16 @@ td{
 
 .colunaTotal p{
     margin: 0px;
+}
+
+.remover_e_riscar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.remover_e_riscar section{
+    margin:0 0 0 5px;
 }
 
 input{
@@ -60,11 +71,18 @@ input{
     margin-left: 10px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 750px){
     .colunaTotal{
         flex-direction: row;
     }
 
+    table{
+        min-width:86vw;
+    }
+
+    th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type{
+        padding: 0px 0px 0 5px;
+    }
     tr.mat-row{
         height: 10vw;
     }

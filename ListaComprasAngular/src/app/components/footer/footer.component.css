@@ -3,8 +3,8 @@ div{
     justify-content: center;   
     align-items: center;
     vertical-align: middle;
-    /* width: 80vw;
-    height: 6vh; */
+    width: 40vw;
+    /* height: 6vh; */
     margin: auto;
     
 } 
@@ -20,7 +20,7 @@ p{
     text-align: center;
     vertical-align: middle;
     
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 1em;
 }
 
@@ -30,4 +30,10 @@ a{
     font-weight: bold;
     
     
+}
+
+@media (max-width: 750px){
+    div{
+        min-width: 75vw;
+    }
 }

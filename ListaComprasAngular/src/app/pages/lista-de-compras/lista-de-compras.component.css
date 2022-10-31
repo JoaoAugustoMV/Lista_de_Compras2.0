@@ -18,9 +18,7 @@ input[type=number] {
     -moz-appearance: textfield;
   }
 
-mat-form-field{
-    min-width: 70vw;
-}
+
 label{
     padding: 10px;
 }
@@ -34,25 +32,33 @@ table{
     border-radius: 1vh;
     margin-bottom: 10px;
     background-color: gray;
-    min-width: 80vw;
-    max-width: 85vw;
+    /* min-width: 80vw; */
+    width: 45vw;
     display: flex;
     flex-flow: column wrap;
     justify-content: center; 
-    align-items: center;
+    /* align-items: center; */
     padding: 10px;
 
+}
+
+mat-form-field{
+    /* width: auto; */
 }
 
 .InputsNumeros{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 2px;
+    margin: 5px;
 }
 .InputsNumeros input{
     text-align: right;
 
+}
+
+.InputsNumeros mat-form-field{
+    /* width: 48%; */
 }
 input[type="button"]{
     
@@ -69,7 +75,7 @@ input[type="button"]{
 .botoes{
     margin: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 50vw;
     
 }
@@ -80,7 +86,11 @@ input[type="button"]{
     /* width: 120px; */
 }
 
-@media (max-width: 500px){
+@media (max-width: 750px){
+
+    #InputsProduto{
+        min-width: 65vw;
+    }
     .InputsNumeros{
         /* background-color: red; */
         display: flex;
@@ -89,6 +99,10 @@ input[type="button"]{
         margin: 2px;
     }
 
+    .InputsNumeros mat-form-field{
+        /* width: 100%; */
+    }
+    
     .botoes{
         display: flex;
         flex-direction: column;

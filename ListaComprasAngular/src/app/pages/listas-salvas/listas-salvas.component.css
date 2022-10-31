@@ -2,6 +2,6 @@ app-lista-icone{
     
 }
 
-mat-card{
-    width: 1000px;
+.mat-card{
+    max-width: 60vw;
 }

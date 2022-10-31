@@ -2,7 +2,7 @@
 .mat-card{
     --cinzaForte: #424242;
     --cinzaFraco: #949494;
-    max-width: 65vw;
+    max-width: 50vw;
     height: 25vh;
     margin: 2vh 2vw ;
     display: flex;
@@ -53,4 +53,10 @@ button{
 }
 .mat-icon{
     padding:0 ;
+}
+
+@media (max-width: 500px){
+    .mat-card{
+        max-width: 60vw;
+    }
 }

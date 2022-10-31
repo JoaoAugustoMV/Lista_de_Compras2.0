@@ -29,8 +29,9 @@ body{
 #conteudo{
     background-color: var(--cinzaForte);
     padding: 10px;
-    min-width: 90vw;
-    max-width: 95vw;
+    width: 50vw;
+    /* max-width: 40vw;
+    min-width: 30vw; */
     min-height: 100%;
     margin: 0px auto ;
 
@@ -49,4 +50,8 @@ body{
     
 
 }
-/* ng build --configuration development --output-path docs --base-href /Lista_de_Compras2.0/     */
+@media (max-width: 750px){
+    #conteudo{
+    min-width: 85vw;
+    }
+}
