@@ -30,8 +30,8 @@ export class ListaDeComprasComponent implements OnInit {
     
     ngOnInit(): void {
       this.rotaAtual = this.router.url //
-      this.nomeLista = this.rotaAtual.split("/").slice(-1)[0] //
-      
+      this.nomeLista = this.rotaAtual.split("/").slice(-1)[0].replace("%20", ' ') // Caso haja espaço no nome da lista, na URL ele é trocado por %20, o que impediria a consulta no banco de dados
+
       this.produtoService.retornarLista(this.nomeLista).subscribe({ 
         next: lista => {
           for(let p in lista){
