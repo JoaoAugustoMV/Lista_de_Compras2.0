@@ -46,7 +46,6 @@ export class ListasSalvasComponent implements OnInit, OnChanges {
   
   descreverLista(lista: Array<Produto>, nomeLista: string){
     let totalFinal: number = 0
-    console.log(typeof lista);
   
     for(let p in lista){
       totalFinal += lista[p]['total']
