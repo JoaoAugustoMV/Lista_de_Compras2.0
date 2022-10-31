@@ -1,0 +1,4 @@
+dist
+.firebase
+.angular
+node_modules
